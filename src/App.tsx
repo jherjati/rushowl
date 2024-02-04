@@ -1,5 +1,3 @@
-// Should I explain how I choose tech stack ?
-
 import { ChangeEvent, FormEvent, useCallback, useMemo, useState } from "react";
 import {
   TextField,
@@ -8,6 +6,7 @@ import {
   Text,
   Form,
   FieldError,
+  Link,
 } from "react-aria-components";
 import axios from "axios";
 import logo from "./assets/logo.jpeg";
@@ -169,18 +168,48 @@ export default function App() {
             )}
           </button>
         </div>
+        <p className='border-t pt-3 mt-6 border-white/10 text-slate-200 text-xs'>
+          Tech stack : React, Typescript, Vite, Tailwind, Hero Icons, React
+          Aria, Axios. You can find the source code{" "}
+          <Link
+            href='https://github.com/jherjati/rushowl/blob/main/src/App.tsx'
+            target='_blank'
+            className='underline'
+          >
+            here.
+          </Link>
+        </p>
       </Form>
 
-      <pre className='p-6 w-1/2 border-2 rounded-lg border-white/10 text-slate-100'>
-        {`
-  function calculateMinMax(arrays: number[][]): number {
+      <div className='p-6 w-1/2 border-2 rounded-lg border-white/10 text-slate-100'>
+        <pre>
+          {`
+  const calculateMinMax = (arrays: number[][]): number => {
     // Map each nested array to its maximum value
     const maxValues = arrays.map(array => Math.max(...array));
     
     // Find the minimum value among the maximum values
     return Math.min(...maxValues);
-    }`}
-      </pre>
+  };`}
+        </pre>
+        <p className='mb-3 mt-6 border-y py-3 border-white/10'>
+          You can check above answer function via{" "}
+          <Link
+            href='https://www.typescriptlang.org/play'
+            target='_blank'
+            className='underline'
+          >
+            Typescript playground
+          </Link>
+          , using your question snippet below :
+        </p>
+        <pre>
+          {`
+const values: number[][] = [ [1,2,3,4,5], [3,4,5,6,7], [6,7,8,9,10] ]
+const answer: number = calculateMinMax(values) 
+console.log(answer)`}
+        </pre>
+      </div>
 
       <article className='p-10 w-1/2 border-2 rounded-lg border-white/10 text-slate-300 space-y-3 text-sm'>
         <p>
@@ -239,6 +268,10 @@ export default function App() {
           abstraction. This distinction highlights the versatility of React as a
           UI library, adaptable to various platforms while maintaining a
           consistent development experience.
+        </p>
+        <p className='border-t pt-3 border-white/10'>
+          The answer above comes from me, but I used ChatGPT just to polish it
+          up.
         </p>
       </article>
     </section>
